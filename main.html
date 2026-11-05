@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лабораторні роботи з WEB-програмування | Рихліцький Павло</title>
+    <style>
+        :root {
+            --bg-color: #0d1117;
+            --surface-color: #161b22;
+            --border-color: #30363d;
+            --text-main: #c9d1d9;
+            --text-muted: #8b949e;
+            --accent-color: #58a6ff;
+            --accent-hover: #79c0ff;
+            --card-hover: #1c2128;
+            --badge-bg: #238636;
+            --badge-text: #ffffff;
+            --badge-draft-bg: #388bfd26;
+            --badge-draft-text: #58a6ff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 2.5rem 1.25rem;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 900px;
+        }
+
+        header {
+            background-color: var(--surface-color);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+        }
+
+        .header-badge {
+            display: inline-block;
+            background-color: #1f6feb;
+            color: #ffffff;
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 2rem;
+            color: #ffffff;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .student-info {
+            font-size: 1.05rem;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+
+        .student-info strong {
+            color: var(--text-main);
+        }
+
+        .meta-list {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.25rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-color);
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .meta-list span {
+            color: var(--text-main);
+            font-weight: 500;
+        }
+
+        .repo-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 500;
+            margin-top: 1rem;
+        }
+
+        .repo-link:hover {
+            color: var(--accent-hover);
+            text-decoration: underline;
+        }
+
+        main {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .section-title {
+            font-size: 1.3rem;
+            color: #ffffff;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .labs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.25rem;
+        }
+
+        .card {
+            background-color: var(--surface-color);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+        }
+
+        .card:hover {
+            border-color: #58a6ff66;
+            background-color: var(--card-hover);
+            transform: translateY(-2px);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 0.75rem;
+        }
+
+        .lab-number {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--accent-color);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .status-badge {
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 0.2rem 0.55rem;
+            border-radius: 12px;
+        }
+
+        .status-badge.done {
+            background-color: var(--badge-bg);
+            color: var(--badge-text);
+        }
+
+        .status-badge.pending {
+            background-color: var(--badge-draft-bg);
+            color: var(--badge-draft-text);
+            border: 1px solid #388bfd40;
+        }
+
+        .card-title {
+            font-size: 1.15rem;
+            color: #ffffff;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-desc {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 1.25rem;
+            flex-grow: 1;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .tag {
+            background-color: #21262d;
+            border: 1px solid var(--border-color);
+            color: #8b949e;
+            font-size: 0.75rem;
+            padding: 0.15rem 0.45rem;
+            border-radius: 6px;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 0.75rem;
+        }
+
+        .btn {
+            display: inline-block;
+            text-align: center;
+            padding: 0.5rem 0.9rem;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: background-color 0.2s ease, color 0.2s ease;
+        }
+
+        .btn-primary {
+            background-color: #238636;
+            color: #ffffff;
+            flex: 1;
+        }
+
+        .btn-primary:hover {
+            background-color: #2ea043;
+        }
+
+        .btn-secondary {
+            background-color: #21262d;
+            color: var(--text-main);
+            border: 1px solid var(--border-color);
+            flex: 1;
+        }
+
+        .btn-secondary:hover {
+            background-color: #30363d;
+        }
+
+        .btn-disabled {
+            background-color: #21262d;
+            color: #484f58;
+            border: 1px solid #30363d;
+            cursor: not-allowed;
+            flex: 1;
+        }
+
+        footer {
+            margin-top: 3rem;
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            border-top: 1px solid var(--border-color);
+            padding-top: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <span class="header-badge">Портфоліо робіт</span>
+            <h1>Лабораторні роботи з WEB-програмування</h1>
+            <p class="student-info">
+                Студент: <strong>Рихліцький Павло</strong> | Спеціальність: <strong>Комп'ютерні науки</strong>
+            </p>
+            <ul class="meta-list">
+                <li>Дисципліна: <span>WEB-програмування</span></li>
+                <li>Навчальний заклад: <span>ВСП «ФКІТ НУ “Львівська політехніка”»</span></li>
+                <li>Рік: <span>2026</span></li>
+            </ul>
+            <a href="https://github.com/pavlo-rykhlitskyi/web-labs" class="repo-link" target="_blank" rel="noopener noreferrer">
+                &rarr; Репозиторій на GitHub
+            </a>
+        </header>
+
+        <main>
+            <h2 class="section-title">Список лабораторних робіт</h2>
+            <div class="labs-grid">
+                
+                <!-- Лабораторна робота 1 -->
+                <article class="card">
+                    <div>
+                        <div class="card-header">
+                            <span class="lab-number">Лабораторна робота №1</span>
+                            <span class="status-badge done">Виконано</span>
+                        </div>
+                        <h3 class="card-title">Блог «Мої 3 найкращі міста світу»</h3>
+                        <p class="card-desc">
+                            Статичний багатосторінковий сайт на семантичній верстці HTML5 з навігацією, формою з різними елементами введення та розгортанням на GitHub Pages.
+                        </p>
+                        <div class="tech-tags">
+                            <span class="tag">HTML5</span>
+                            <span class="tag">Semantic HTML</span>
+                            <span class="tag">Git</span>
+                            <span class="tag">GitHub Pages</span>
+                        </div>
+                    </div>
+                    <div class="btn-group">
+                        <a href="./lab1/index.html" class="btn btn-primary">Демо сайту</a>
+                        <a href="./lab1/report.md" class="btn btn-secondary">Звіт</a>
+                    </div>
+                </article>
+
+                <!-- Лабораторна робота 2 -->
+                <article class="card">
+                    <div>
+                        <div class="card-header">
+                            <span class="lab-number">Лабораторна робота №2</span>
+                            <span class="status-badge pending">В розробці</span>
+                        </div>
+                        <h3 class="card-title">Верстка сайту з використанням CSS</h3>
+                        <p class="card-desc">
+                            Оформлення семантичної розмітки за допомогою CSS: каскад, специфічність, типи відображення елементів (Display), Box Model та адаптивна сітка.
+                        </p>
+                        <div class="tech-tags">
+                            <span class="tag">HTML5</span>
+                            <span class="tag">CSS3</span>
+                            <span class="tag">Box Model</span>
+                            <span class="tag">Flexbox</span>
+                        </div>
+                    </div>
+                    <div class="btn-group">
+                        <a href="./lab2/index.html" class="btn btn-secondary">Демо сайту</a>
+                        <span class="btn btn-disabled">Звіт</span>
+                    </div>
+                </article>
+
+                <!-- Лабораторна робота 3 -->
+                <article class="card">
+                    <div>
+                        <div class="card-header">
+                            <span class="lab-number">Лабораторна робота №3</span>
+                            <span class="status-badge pending">Заплановано</span>
+                        </div>
+                        <h3 class="card-title">Адаптивна та гумова верстка</h3>
+                        <p class="card-desc">
+                            Використання Media Queries, гнучких сіток (CSS Grid, Flexbox), оптимізація відображення сайту під мобільні та десктопні пристрої.
+                        </p>
+                        <div class="tech-tags">
+                            <span class="tag">Responsive</span>
+                            <span class="tag">CSS Grid</span>
+                            <span class="tag">Media Queries</span>
+                        </div>
+                    </div>
+                    <div class="btn-group">
+                        <span class="btn btn-disabled">Демо сайту</span>
+                        <span class="btn btn-disabled">Звіт</span>
+                    </div>
+                </article>
+
+                <!-- Лабораторна робота 4 -->
+                <article class="card">
+                    <div>
+                        <div class="card-header">
+                            <span class="lab-number">Лабораторна робота №4</span>
+                            <span class="status-badge pending">Заплановано</span>
+                        </div>
+                        <h3 class="card-title">Основи взаємодії через JavaScript</h3>
+                        <p class="card-desc">
+                            Робота з Document Object Model (DOM), обробка подій користувача, динамічні сценарії взаємодії та маніпуляції з елементами інтерфейсу.
+                        </p>
+                        <div class="tech-tags">
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">DOM API</span>
+                            <span class="tag">Event Handling</span>
+                        </div>
+                    </div>
+                    <div class="btn-group">
+                        <span class="btn btn-disabled">Демо сайту</span>
+                        <span class="btn btn-disabled">Звіт</span>
+                    </div>
+                </article>
+
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 Рихліцький Павло. Навчальний проєкт з WEB-програмування.</p>
+        </footer>
+    </div>
+</body>
+</html>

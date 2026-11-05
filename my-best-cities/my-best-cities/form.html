@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Запропонувати місто — Мої 3 найкращі міста світу</title>
+</head>
+<body>
+    <header>
+        <h1>Запропонувати місто для наступного огляду</h1>
+        <p>Маєте улюблене місто, про яке варто розповісти? Заповніть форму нижче, і воно може потрапити в наступний випуск блогу!</p>
+        <nav>
+            <ul>
+                <li><a href="index.html">Головна</a></li>
+                <li><a href="city-drohobych.html">Дрогобич</a></li>
+                <li><a href="city-kyiv.html">Київ</a></li>
+                <li><a href="city-tokyo.html">Токіо</a></li>
+                <li><a href="form.html">Запропонувати місто</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>Форма зворотного зв'язку</h2>
+            <form action="#" method="post">
+                <fieldset>
+                    <legend>Контактна інформація автора пропозиції</legend>
+                    <p>
+                        <label for="author-name">Ваше ім'я: *</label><br>
+                        <input type="text" id="author-name" name="author_name" placeholder="Наприклад, Олексій" required>
+                    </p>
+                    <p>
+                        <label for="author-email">Електронна пошта: *</label><br>
+                        <input type="email" id="author-email" name="author_email" placeholder="example@domain.com" required>
+                    </p>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Відомості про місто</legend>
+                    <p>
+                        <label for="city-name">Назва міста: *</label><br>
+                        <input type="text" id="city-name" name="city_name" placeholder="Наприклад, Прага" required>
+                    </p>
+                    <p>
+                        <label for="country-name">Країна: *</label><br>
+                        <input type="text" id="country-name" name="country_name" placeholder="Наприклад, Чехія" required>
+                    </p>
+                    <p>
+                        <label for="city-category">Тип локації / Чим приваблює:</label><br>
+                        <select id="city-category" name="city_category">
+                            <option value="history">Історична та архітектурна спадщина</option>
+                            <option value="megapolis">Сучасний мегаполіс та інновації</option>
+                            <option value="nature">Природа та курортний відпочинок</option>
+                            <option value="culture">Культурна та гастрономічна столиця</option>
+                            <option value="cozy">Затишне маленьке містечко</option>
+                        </select>
+                    </p>
+                    <p>
+                        <label for="personal-rating">Ваша оцінка міста (від 1 до 10):</label><br>
+                        <input type="number" id="personal-rating" name="personal_rating" min="1" max="10" value="10">
+                    </p>
+                    <p>
+                        <span>Чи відвідували ви це місто особисто?</span><br>
+                        <label><input type="radio" name="visited" value="yes" checked> Так, бував(ла) там</label><br>
+                        <label><input type="radio" name="visited" value="no"> Ні, це місто мрії</label>
+                    </p>
+                    <p>
+                        <label for="city-description">Чому це місто варто додати в рейтинг? *</label><br>
+                        <textarea id="city-description" name="city_description" rows="5" cols="45" placeholder="Опишіть атмосферу, цікаві локації або власні враження..." required></textarea>
+                    </p>
+                    <p>
+                        <label><input type="checkbox" name="newsletter" value="subscribe"> Бажаю отримувати сповіщення про вихід нових статей блогу</label>
+                    </p>
+                </fieldset>
+
+                <p>
+                    <button type="submit">Надіслати пропозицію</button>
+                    <button type="reset">Очистити поля</button>
+                </p>
+            </form>
+        </section>
+
+        <p><a href="index.html">&larr; Повернутися на головну</a></p>
+    </main>
+
+    <footer>
+        <hr>
+        <p>&copy; 2026 Рихліцький Павло. Лабораторна робота №1.</p>
+    </footer>
+</body>
+</html>

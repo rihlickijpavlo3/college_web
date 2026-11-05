@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
+  <defs>
+    <linearGradient id="sky2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1e3799"/>
+      <stop offset="60%" stop-color="#4a69bd"/>
+      <stop offset="100%" stop-color="#f6b93b"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" fill="url(#sky2)"/>
+  <!-- Hills -->
+  <path d="M0,360 Q200,300 400,340 T800,320 L800,500 L0,500 Z" fill="#2c3e50"/>
+  <!-- Dnipro River reflection -->
+  <rect y="400" width="800" height="100" fill="#0c2461" opacity="0.8"/>
+  <!-- Lavra & Sofia bells silhouette -->
+  <rect x="220" y="220" width="45" height="110" fill="#1e272e"/>
+  <polygon points="210,220 242,160 275,220" fill="#f1c40f"/>
+  <circle cx="242.5" cy="155" r="8" fill="#f1c40f"/>
+  <rect x="290" y="250" width="35" height="80" fill="#1e272e"/>
+  <polygon points="280,250 307,195 335,250" fill="#f1c40f"/>
+  <!-- Motherland monument silhouette -->
+  <path d="M550,330 L560,210 L550,170 L575,170 L565,210 L575,330 Z" fill="#1e272e"/>
+  <line x1="575" y1="210" x2="615" y2="130" stroke="#1e272e" stroke-width="6"/>
+  <line x1="545" y1="220" x2="520" y2="190" stroke="#1e272e" stroke-width="6"/>
+  <circle cx="515" cy="185" r="14" fill="#1e272e"/>
+  <!-- Bridge over Dnipro -->
+  <line x1="0" y1="410" x2="800" y2="410" stroke="#7f8c8d" stroke-width="4"/>
+  <path d="M400,410 Q460,360 520,410" stroke="#e74c3c" stroke-width="5" fill="none"/>
+  <!-- Text -->
+  <text x="400" y="450" font-family="Georgia, serif" font-size="32" fill="#ffffff" text-anchor="middle" font-weight="bold">КИЇВ — ЗОЛОТОГЛАВЕ СЕРЦЕ УКРАЇНИ</text>
+  <text x="400" y="480" font-family="sans-serif" font-size="16" fill="#f6b93b" text-anchor="middle">Дніпровські схили • Лавра • Поділ • Місто незламної сили</text>
+</svg>

@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
+  <defs>
+    <linearGradient id="sky3" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0a091a"/>
+      <stop offset="60%" stop-color="#241442"/>
+      <stop offset="100%" stop-color="#701258"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" fill="url(#sky3)"/>
+  <!-- Mount Fuji in distance -->
+  <polygon points="120,350 250,220 380,350" fill="#312244"/>
+  <polygon points="215,255 250,220 285,255" fill="#f8f9fa"/>
+  <!-- Tokyo Skytree / Tokyo Tower silhouette -->
+  <polygon points="560,370 578,110 582,110 600,370" fill="#e74c3c"/>
+  <line x1="580" y1="110" x2="580" y2="60" stroke="#e74c3c" stroke-width="3"/>
+  <rect x="568" y="210" width="24" height="20" fill="#ffffff"/>
+  <!-- Skyscrapers skyline -->
+  <rect x="30" y="240" width="55" height="160" fill="#111024"/>
+  <rect x="100" y="280" width="60" height="120" fill="#18152e"/>
+  <rect x="320" y="200" width="70" height="200" fill="#131026"/>
+  <rect x="410" y="250" width="80" height="150" fill="#1c163a"/>
+  <rect x="640" y="230" width="65" height="170" fill="#151229"/>
+  <rect x="720" y="270" width="60" height="130" fill="#111024"/>
+  <!-- Neon lights & signs -->
+  <circle cx="340" cy="230" r="3" fill="#00d2d3"/>
+  <circle cx="360" cy="250" r="3" fill="#ff9ff3"/>
+  <circle cx="430" cy="270" r="4" fill="#feca57"/>
+  <circle cx="460" cy="300" r="3" fill="#00d2d3"/>
+  <circle cx="660" cy="260" r="4" fill="#ff6b6b"/>
+  <!-- Ground / Crosswalk -->
+  <rect y="400" width="800" height="100" fill="#08070d"/>
+  <line x1="200" y1="440" x2="600" y2="440" stroke="#f8f9fa" stroke-width="8" stroke-dasharray="25,20"/>
+  <line x1="200" y1="465" x2="600" y2="465" stroke="#f8f9fa" stroke-width="8" stroke-dasharray="25,20"/>
+  <!-- Text -->
+  <text x="400" y="445" font-family="Georgia, serif" font-size="32" fill="#ffffff" text-anchor="middle" font-weight="bold">ТОКІО — МЕГАПОЛІС МАЙБУТНЬОГО</text>
+  <text x="400" y="480" font-family="sans-serif" font-size="16" fill="#ff9ff3" text-anchor="middle">Сібуя • Акіхабара • Неонове світло • Багатовікові традиції</text>
+</svg>
